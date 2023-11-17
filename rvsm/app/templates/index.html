@@ -1,0 +1,151 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SONAR ROCK VS MINE PREDICTION</title>
+    <style>
+        .answer{
+            position: relative;
+            top: 26em;
+            left: 0em;
+            color: black;
+            font-size: x-large;
+
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: 	#66545e;
+            text-align: center;
+            margin: 0;
+   
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            text-align: left;
+            margin: 10px 0;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+        }
+
+        input[type="text"] {
+            width: 90%;
+            padding:9px;
+            border: 1px solid #f6e0b5;
+            border-radius: 4px;
+            color: #aa6f73;
+        }
+
+        input[type="submit"] {
+            background-color: #007BFF;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        .content {
+  position: fixed;
+  bottom: 0;
+  margin-left: 25em;
+  color: black;
+  width: 100%;
+  padding: 20px;
+}
+    #myVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+    </style>
+</head>
+<body>
+   
+
+    <video autoplay muted loop id="myVideo">
+        <source src="{% static 'img/ocean aerial view.mp4' %}" type="video/mp4">
+      </video>
+     
+    
+    <div class="content">
+       
+        {% if ans == 1 %}
+        <h1  class="answer"><span style="background-color: green; border-radius: 7px;">ROCK</span></h1>
+        {% elif ans == 2 %} 
+        <h1  class="answer"><span style="background-color: red; border-radius: 7px;"> MINE</span></h1>
+         {% endif %}
+    <div class="container" class="answer">
+        <h1>SONAR ROCK VS MINE PREDICTION</h1>
+
+    
+       
+
+        <form action=" " method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="input1">TOP DATA</label>
+                <input type="text" id="input1" name="input1">
+            </div>
+            <div class="form-group">
+                <label for="input2">TOP RIGHT DATA</label>
+                <input type="text" id="input2" name="input2">
+            </div>
+            <div class="form-group">
+                <label for="input3">TOP LEFT DATA</label>
+                <input type="text" id="input3" name="input3">
+            </div>
+            <div class="form-group">
+                <label for="input4">BOTTOM DATA</label>
+                <input type="text" id="input4" name="input4">
+            </div>
+            <div class="form-group">
+                <label for="input5">BOTTOM RIGHT DATA</label>
+                <input type="text" id="input5" name="input5">
+            </div>
+            <div class="form-group">
+                <label for="input6">BOTTOM LEFT DATA</label>
+                <input type="text" id="input6" name="input6">
+            </div>
+            <div class="form-group">
+                <label for="input7">CENTER DATA</label>
+                <input type="text" id="input7" name="input7">
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Submit">
+            </div>
+        </form>
+    </div>
+        
+      </div>
+      
+</body>
+</html>
